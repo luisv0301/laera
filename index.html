@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: "NibPro-SemiBold";
+        src: url("fonts/fira/eot/FiraSans-Regular.eot");
+        src: url("NibPro-SemiBold.woff2") format("woff2"),
+          url("NibPro-SemiBold.woff") format("woff"),
+          url("NibPro-SemiBold.ttf") format("truetype");
+      }
+
+      .wrapper {
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+      }
+
+      h1 {
+        max-width: 30ch;
+        font-family: monospace;
+        font-size: 2.5rem;
+      }
+
+      .text {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 44px;
+        overflow: hidden;
+      }
+
+      .text > span {
+        position: relative;
+        top: 0;
+        animation: move-up 10.5s steps(3) infinite;
+        font: inherit;
+      }
+
+      .text > span:nth-child(1) {
+        color: orange;
+      }
+
+      .text > span:nth-child(2) {
+        color: green;
+      }
+
+      .text > span:nth-child(3) {
+        color: blue;
+      }
+
+      .text > span::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: white;
+
+        animation: typing 3.5s steps(8) infinite;
+      }
+
+      .text > .inline-text::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: white;
+        border-left: 1px solid;
+        animation: typing 3.5s ease-out infinite;
+      }
+
+      h1:has(.inline-text) {
+        font-family: "NibPro-SemiBold", sans-serif;
+      }
+
+      .h1-edit {
+        line-height: 120%;
+      }
+      .text-custom-font {
+        height: 48px;
+      }
+
+      @keyframes typing {
+        40%,
+        60% {
+          left: 100%;
+        }
+        100% {
+          left: 0;
+        }
+      }
+
+      @keyframes typing-g {
+        5% {
+          opacity: 1;
+        }
+        40%,
+        60% {
+          left: 100%;
+        }
+        100% {
+          left: 0;
+          opacity: 0;
+        }
+      }
+
+      @keyframes move-up {
+        100% {
+          top: -144px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>
+        Soluciones en consultoría basadas en
+        <span class="text">
+          <span>Clientes</span>
+          <span>Ambiente</span>
+          <span>Finanzas</span>
+        </span>
+      </h1>
+    </div>
+
+    <div class="wrapper">
+      <h1 class="h1-edit">
+        Soluciones en consultoría basadas en
+        <span class="text text-custom-font">
+          <span class="inline-text">Clientes</span>
+          <span class="inline-text">Ambiente</span>
+          <span class="inline-text">Finanzas</span>
+        </span>
+      </h1>
+    </div>
+  </body>
+</html>
