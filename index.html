@@ -82,6 +82,54 @@
         height: 48px;
       }
 
+      .h1-new {
+        font-family: sans-serif;
+      }
+
+      .text-animation {
+        position: relative;
+      }
+
+      .text-animation::before {
+        font: inherit;
+        content: "promovemos cambios";
+        animation: change 6s linear infinite;
+      }
+
+      .text-animation::after {
+        content: "";
+        position: absolute;
+        background-color: white;
+        background: linear-gradient(
+          270deg,
+          rgba(255, 255, 255, 1) 81%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        inset: 0;
+        animation: move-left 2s ease-out infinite;
+      }
+
+      @keyframes move-left {
+        to {
+          left: 100%;
+        }
+      }
+
+      @keyframes change {
+        0%,
+        33.33% {
+          content: "promovemos cambios";
+        }
+        34.33%,
+        66.66% {
+          content: "impulsamos el desarrollo";
+        }
+        67.66%,
+        100% {
+          content: "generamos valor";
+        }
+      }
+
       @keyframes typing {
         40%,
         60% {
@@ -133,6 +181,13 @@
           <span class="inline-text">Ambiente</span>
           <span class="inline-text">Finanzas</span>
         </span>
+      </h1>
+    </div>
+
+    <div class="wrapper">
+      <h1 class="h1-new">
+        Optimizamos procesos, transformamos talento,
+        <span class="text-animation"> </span>
       </h1>
     </div>
   </body>
